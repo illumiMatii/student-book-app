@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Księga studentów</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+<body>
+    <h1 align="center">Księga studentów</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Nr. Indeksu</th>
+            <th>email</th>
+            <th>Opis</th>
+            <th>Kasuj</th>
+            <th>Aktualizuj</th>
+        </tr>
+        <tr th:each="wpis: ${people}">
+            <td th:text="${wpis.firstname}">Imię</td>
+            <td th:text="${wpis.lastname}">Nazwisko</td>
+            <td th:text="${wpis.indeks}">Nr. Indeksu</td>
+            <td th:text="${wpis.email}">email</td>
+            <td th:text="${wpis.description}">Opis</td>
+            <td><a href="#" th:href="@{/delete (id=${wpis.id})}" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i>Kasuj</a></td>
+            <td><a href="#" th:href="@{/redirect (id=${wpis.id})}" class="btn btn-primary"><i class="fa fa-trash-o fa-lg"></i>Aktualizuj</a></td>
+        </tr>
+    </table>
+    <table class="table table-striped">
+        <tr>
+            <td> Wyszukaj osoby wg nazwiska</td>
+            <td>
+                <form action="http://localhost:8080/search">
+                    <input name="last">
+            </td>
+            <td>
+                <input type="submit">
+                </form>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

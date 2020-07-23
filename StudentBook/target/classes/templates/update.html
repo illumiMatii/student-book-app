@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Aktualizuj dane o studencie</title>
+</head>
+<body>
+    <form th:action="@{/update}" th:object="${person}">
+        <h1>Aktualizacja Studenta</h1>
+        <table>
+            <tr>
+                <td>Podaj imię</td>
+                <td><input name="firstname" th:field="*{firstname}"/></td>
+            </tr>
+            <tr>
+                <td>Podaj nazwisko</td>
+                <td><input name="lastname" th:field="*{lastname}"/></td>
+            </tr>
+            <tr>
+                <td>Podaj numer indeksu</td>
+                <td><input name="indeks" th:field="*{indeks}"/></td>
+            </tr>
+            <tr>
+                <td>Podaj email</td>
+                <td><input name="email" th:field="*{email}"/></td>
+            </tr>
+            <tr>
+                <td>Podaj opis</td>
+                <td><input name="description" th:field="*{description}"/>
+                <input name="id" type="hidden" th:field="*{id}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
